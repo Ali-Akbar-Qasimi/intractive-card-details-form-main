@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+
+//### Primary
+
+$Lineargradient : hsl(278, 94%, 30%);//(active input border)
+$Red : hsl(0, 100%, 66%);//(input errors)
+
+//### Neutral
+
+$White: hsl(0, 0%, 100%);
+$Lightgrayishviolet: hsl(270, 3%, 87%);
+$Darkgrayishviolet: hsl(279, 6%, 55%);
+$Verydarkviolet: hsl(278, 68%, 11%);
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-size: 18px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: $White;
+    .cards{
+        width: 100%;
+        height: 30vh;
+        background-image:url(./images/bg-main-mobile.png) ;
+        background-size: cover;
+        padding: 20px;
+        padding-top: 30px;
+        position: relative;
+        .back{
+            float: right;
+            position: relative;
+            z-index: 0;
+
+            .back-image{
+                width: 360px;
+                height: 210px;
+            }
+            .back-cvc{
+                position: absolute;
+                top: 44%;
+                left: 80%;
+                font-size: 13px;
+                color: $White;
+            }
+        }
+        .front{
+            z-index: 1;
+            width: 360px;
+            top: 61%;
+            height: max-content;
+            position: absolute;
+            justify-content: space-between;
+            .front-image{
+                width: 100%;
+                height: 210px;
+                position: absolute;
+                z-index: -1;
+                height: max-content;
+            }
+            .card-header{
+                width: 100%;
+                padding: 20px;
+                height: max-content;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .white-circle{
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 100%;
+                    background-color: $White;
+                }
+                .bordered-circle{
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid white;
+                    border-radius: 100%;
+                }
+            }
+            .front-number{
+                color: white;
+                padding: 20px;
+                font-size: 25px;
+                width: 100%;
+                font-weight: 500;
+                transform: translateY(20px);
+            }
+            .front-footer{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                color: $Lightgrayishviolet;
+                font-weight: thin;
+                font-size: 15px;
+                .card-date{
+                    display: flex;
+                }
+            }
+        }
+    }
+    .form{
+        padding: 20px;
+        padding-top: 170px;
+        input{
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            font-family: "Space Grotesk" , sans-serif;
+            border-radius: 10px;
+            border: none;
+            outline: $Lightgrayishviolet solid 1px;
+            padding-left: 20px;
+        }
+        input:focus{
+            outline: $Lineargradient solid 2px;
+        }
+        input.bordered{
+            outline: $Red solid 2px;
+        }
+
+        ::placeholder{
+            color: $Lightgrayishviolet;
+            font-weight: 200;
+            opacity: 1;
+        }          
+        .row{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .row.bottom{
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            .date{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .inputs{
+                    display: flex;
+                    gap: 10px;
+                }
+            }
+            .cvc-container{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .form-button{
+            width: 100%;
+            background-color: $Verydarkviolet;
+            color: $Lightgrayishviolet;
+            font-size: 24px;
+            padding: 20px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+    .complete-page{
+        padding: 20px;
+        padding-top: 170px;
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+        .complete-image{
+            width: 80px;
+            
+        }
+        .header-text{
+            font-size: 30px;
+            font-weight: 200;
+            letter-spacing: 5px;
+        }
+        .complete-text{
+            color: rgb(154, 154, 154);
+            font-size: 24px;
+            font-weight: 200;
+        }
+        .continue{
+            margin-top: 30px;
+            width: 100%;
+            background-color: $Verydarkviolet;
+            color: $Lightgrayishviolet;
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    }
+}
+
+span{
+    color: $Red;
+}
+
+
+@media screen and (min-width:800px){
+    .container{
+        display: flex;
+        .cards{
+            background-image:url(./images/bg-main-desktop.png) ;
+            width: 30%;
+            height: 100%;
+            .back{
+                position: absolute;
+                left: 50%;
+                margin-top: 400px;
+            }
+            .front{
+                top: 20%;
+                left: 40%;
+            }
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            padding-left: 300px;
+            padding-right: 100px;
+        }
+        .complete-page{
+            padding-left: 300px;
+            padding-right: 100px;
+        }
+    }
+    .attribution{
+        margin-top: 0;
+    }
+}
+
+.attribution { 
+    font-size: 11px;
+    margin-top: 30px;
+    text-align: center;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
